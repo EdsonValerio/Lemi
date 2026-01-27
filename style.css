@@ -1,589 +1,194 @@
-/* style.css - VERSÃO 4 - Corrigida a estrutura da Media Query */
+/* style.css - Lemi Gastrobar (One Page - Final v2) */
 
-/* --- Configurações Globais e Fontes --- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;600&display=swap');
 
 :root {
-  --cor-fundo-claro: #ffffff;
-  --cor-texto-escuro: #333333;
-  --cor-detalhe-titulo: #1a1a1a;
-  --cor-secundaria: #8a8a8a;
+  /* --- CORES (LIGHT MODE DEFAULT) --- */
+  --bg-color: #f4f4f4;
+  --surface-color: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --accent-color: #bfa030; /* Dourado/Cobre */
+  --accent-hover: #9e8425;
+  
+  /* Efeitos */
+  --glass-bg: rgba(255, 255, 255, 0.90);
+  --glass-border: 1px solid rgba(0, 0, 0, 0.05);
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+  
+  /* Utilitários */
+  --logo-filter: none;
+  --hero-overlay: rgba(255, 255, 255, 0.6);
+  
+  /* Layout */
+  --container-width: 1100px;
+  --header-height: 80px;
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Fontes --- */
-.fonte-titulo-menu {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: var(--cor-detalhe-titulo);
+/* --- DARK MODE --- */
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --accent-color: #d4af37;
+  --accent-hover: #bfa030;
+  
+  --glass-bg: rgba(18, 18, 18, 0.90);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.3);
+  
+  --logo-filter: brightness(0) invert(1);
+  --hero-overlay: rgba(18, 18, 18, 0.7);
 }
 
-.fonte-conteudo-menu {
-  font-family: 'Cormorant Garamond', serif;
-  font-weight: 400;
-  color: var(--cor-texto-escuro);
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  background-color: var(--cor-fundo-claro);
+html { 
+  scroll-behavior: smooth; 
+  scroll-padding-top: var(--header-height);
 }
 
 body {
-  background-color: transparent; 
-  color: var(--cor-texto-escuro);
-  font-size: 1.1rem;
-  line-height: 1.7;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  padding-top: var(--header-height);
+}
+
+/* Background Texture */
+body::before {
+  content: ""; position: fixed; inset: 0;
+  background-image: url('lemi_background_desktop.png');
+  background-size: cover; background-position: center;
+  opacity: 0.05; z-index: -1; pointer-events: none;
+  filter: var(--logo-filter); transition: var(--transition);
+}
+
+/* Tipografia */
+h1, h2, h3, h4, .btn, .nav-links a { font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 2px; }
+h2 { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 3rem; text-align: center; }
+p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+/* Navbar */
+.navbar {
+  position: fixed; top: 0; left: 0; width: 100%; height: var(--header-height);
+  background: var(--glass-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--glass-border); z-index: 1000; transition: var(--transition);
+}
+.navbar .container { display: flex; justify-content: space-between; align-items: center; height: 100%; }
+.logo-img { height: 45px; filter: var(--logo-filter); transition: var(--transition); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { color: var(--text-primary); text-decoration: none; font-size: 0.85rem; font-weight: 600; opacity: 0.8; transition: var(--transition); }
+.nav-links a:hover { opacity: 1; color: var(--accent-color); }
+
+/* Theme Toggle */
+.theme-toggle {
+  background: transparent; border: 1px solid var(--text-primary); color: var(--text-primary);
+  width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: var(--transition); margin-left: 20px;
+}
+.theme-toggle:hover { background: var(--text-primary); color: var(--bg-color); }
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  margin-top: calc(var(--header-height) * -1);
+  display: flex; align-items: center; justify-content: center; text-align: center;
   position: relative;
 }
-
-/* --- Camada de Fundo (Desktop) --- */
-body::before {
-  content: ""; 
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: -1; 
-  background-image: url('lemi_background_desktop.png');
-  background-repeat: no-repeat;
-  background-position: center right;
-  background-size: auto 100vh;
-  opacity: 0.15;
+.hero::after {
+  content: ''; position: absolute; inset: 0;
+  background: var(--hero-overlay); z-index: -1; transition: background 0.4s ease;
 }
+.hero-content { max-width: 900px; padding: 0 20px; animation: fadeUp 1s ease-out; }
+.hero-subtitle { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.5rem; color: var(--accent-color); margin-bottom: 1.5rem; }
+.hero-main-logo { max-width: 450px; width: 80%; height: auto; display: block; margin: 0 auto 2rem auto; filter: var(--logo-filter); transition: var(--transition); }
 
-
-/* ================================================= */
-/* --- INÍCIO DAS REGRAS GLOBAIS / DESKTOP --- */
-/* ================================================= */
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Cabeçalho e Navegação */
-.navbar {
-  background-color: var(--cor-fundo-claro);
-  padding: 1.5rem 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  text-decoration: none;
-}
-
-.logo-img {
-  height: 60px;
-  width: auto; 
-  display: block;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-}
-
-.nav-links li {
-  margin-left: 30px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--cor-texto-escuro);
-  font-weight: 700;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-}
-
-.nav-links a:hover,
-.nav-links a.ativo {
-  color: var(--cor-secundaria);
-  border-bottom: 2px solid var(--cor-detalhe-titulo);
-}
-
-/* Rodapé */
-.footer {
-  background-color: var(--cor-detalhe-titulo);
-  color: var(--cor-fundo-claro);
-  text-align: center;
-  padding: 2.5rem 0;
-  margin-top: 60px;
-  font-family: 'Cormorant Garamond', serif;
-}
+.cta-group { margin-top: 3rem; display: flex; gap: 1.5rem; justify-content: center; }
 
 /* Botões */
 .btn {
-  display: inline-block;
-  padding: 14px 30px;
-  background-color: var(--cor-detalhe-titulo);
-  color: var(--cor-fundo-claro);
-  text-decoration: none;
-  font-weight: 700;
-  font-family: 'Montserrat', sans-serif;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  border: none;
-  cursor: pointer;
-  letter-spacing: 1px;
-  font-size: 0.95rem;
+  display: inline-block; padding: 16px 32px; font-size: 0.8rem; font-weight: 600;
+  text-decoration: none; border: 1px solid var(--accent-color); color: var(--accent-color);
+  transition: var(--transition); position: relative; overflow: hidden; z-index: 1; cursor: pointer;
 }
+.btn-fill { background-color: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+[data-theme="light"] .btn-fill { color: #fff; } 
+[data-theme="dark"] .btn-fill { color: #000; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-.btn:hover {
-  background-color: var(--cor-secundaria);
-  transform: translateY(-1px);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-}
+/* Seções Gerais */
+.container { max-width: var(--container-width); margin: 0 auto; padding: 0 2rem; }
+section { padding: 6rem 0; border-bottom: 1px solid var(--glass-border); }
+section:last-of-type { border-bottom: none; }
 
-/* Página Principal (Hero) */
-.hero {
-  height: 90vh;
-  background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7));
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 0 20px;
-  color: var(--cor-detalhe-titulo);
-}
+/* Sobre Nós Grid */
+.sobre-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.image-wrapper { position: relative; }
+.image-wrapper img { width: 100%; border-radius: 2px; filter: grayscale(20%); transition: var(--transition); }
+.image-wrapper:hover img { filter: grayscale(0%); }
+.image-offset-border { position: absolute; top: 20px; left: -20px; width: 100%; height: 100%; border: 1px solid var(--accent-color); z-index: -1; opacity: 0.5; }
 
-.hero h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 4rem;
-  color: var(--cor-detalhe-titulo);
-  margin-bottom: 1.5rem;
-  letter-spacing: 3px;
-}
-
-.hero p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  margin-bottom: 3rem;
-  max-width: 600px;
-}
-
-.cta-buttons .btn {
-  margin: 0 15px;
-}
-
-/* Sobre Nós */
-.sobre-nos {
-  padding: 5rem 0;
-}
-
-.sobre-nos h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.8rem;
-  color: var(--cor-detalhe-titulo);
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  text-align: center;
-}
-
-.sobre-nos-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 3rem;
-  align-items: center;
-}
-
-.sobre-nos-imagem img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px; 
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.sobre-nos-texto {
-  text-align: left;
-}
-
-.sobre-nos-texto p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
-/* Seção de Depoimentos */
-.depoimentos {
-  padding: 3rem 0 5rem 0; 
-  text-align: center;
-}
-
-.depoimentos h2 {
-  font-size: 2.8rem;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.depoimentos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  text-align: left;
-}
-
-.depoimento-card {
-  background-color: var(--cor-fundo-claro);
-  border: 1px solid #eee;
-  border-radius: 5px;
-  padding: 2rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-  display: flex;
-  flex-direction: column;
-}
-
-.depoimento-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-}
-
-.depoimento-estrelas {
-  font-size: 1.2rem;
-  color: #fbbc05;
-  letter-spacing: 2px;
-}
-
-.depoimento-google {
-  width: 24px;
-  height: 24px;
-}
-
-.depoimento-texto {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-
-.depoimento-autor {
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-/* Páginas de Conteúdo (Reservas, Menus) */
-.content-page {
-  padding: 5rem 0;
-}
-
-.content-page h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3.2rem;
-  color: var(--cor-detalhe-titulo);
-  text-align: center;
-  margin-bottom: 3rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-/* Reservas */
-.reservas-content {
-  background-color: var(--cor-fundo-claro);
-  border: 1px solid #eee;
-  padding: 2.5rem;
-  border-radius: 5px;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
-
-.reservas-content h2 {
-  color: var(--cor-detalhe-titulo);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.8rem;
-  margin-top: 2rem;
-  margin-bottom: 0.8rem;
-}
-
-.reservas-content p, .reservas-content ul {
-  font-family: 'Cormorant Garamond', serif;
-  margin-bottom: 1.2rem;
-  font-size: 1.15rem;
-}
-
-.reservas-content ul {
-  padding-left: 25px;
-  list-style-type: disc;
-}
-
-.whatsapp-button {
-  text-align: center;
-  margin-top: 3rem;
-}
-
-.whatsapp-button .btn {
-  background-color: #25D366;
-  color: #fff;
-}
-
-.whatsapp-button .btn:hover {
-  background-color: #1EAE53;
-}
-
-/* Menus (Pratos e Drinks) */
-.menu-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
-}
-
+/* --- MENU GRIDS (Pratos & Drinks) --- */
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
 .menu-item {
-  background-color: var(--cor-fundo-claro);
-  border: 1px solid #eee;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--surface-color); border: 1px solid var(--glass-border);
+  border-radius: 4px; overflow: hidden; transition: var(--transition);
+  position: relative; box-shadow: var(--shadow-soft);
+}
+.menu-item:hover { transform: translateY(-5px); border-color: var(--accent-color); }
+
+.menu-img-container { height: 220px; overflow: hidden; position: relative; border-bottom: 1px solid var(--glass-border); }
+.menu-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.menu-item:hover .menu-img-container img { transform: scale(1.05); }
+
+.menu-content { padding: 1.5rem; }
+.menu-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+.menu-header h3 { font-size: 1.1rem; margin: 0; color: var(--text-primary); }
+.price { color: var(--accent-color); font-weight: 600; font-family: 'Montserrat', sans-serif; font-size: 1rem; }
+.menu-desc { font-size: 1rem; color: var(--text-secondary); margin-bottom: 0; }
+.tag {
+  position: absolute; top: 10px; right: 10px; background: var(--accent-color);
+  color: #fff; padding: 4px 10px; font-size: 0.7rem; font-weight: bold;
+  text-transform: uppercase; z-index: 2; font-family: 'Montserrat', sans-serif;
 }
 
-.menu-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+/* --- RESERVAS --- */
+.reservas-box {
+  background: var(--surface-color); padding: 3rem; border: 1px solid var(--glass-border);
+  max-width: 800px; margin: 0 auto; text-align: center; box-shadow: var(--shadow-soft);
 }
+.reservas-list { list-style: none; text-align: left; margin: 2rem auto; display: inline-block; }
+.reservas-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; color: var(--text-secondary); }
+.reservas-list li::before { content: "•"; color: var(--accent-color); font-size: 1.5rem; }
 
-.menu-item img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
+/* --- CARDS DE DEPOIMENTO (RESTAURADO) --- */
+.depoimentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.card {
+  background: var(--surface-color); padding: 2.5rem;
+  border: 1px solid var(--glass-border); transition: var(--transition);
+  box-shadow: var(--shadow-soft);
 }
+.card:hover { border-color: var(--accent-color); transform: translateY(-5px); }
+.stars { color: var(--accent-color); letter-spacing: 2px; display: block; margin-bottom: 1rem; }
 
-.menu-item-content {
-  padding: 1.8rem;
-}
+/* Footer */
+footer { text-align: center; padding: 3rem 0; border-top: 1px solid var(--glass-border); color: var(--text-secondary); font-size: 0.9rem; }
 
-.menu-item-content h3 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.6rem;
-  color: var(--cor-detalhe-titulo);
-  margin-bottom: 0.7rem;
-}
-
-.menu-item-content p {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
-}
-
-/* Botões Flutuantes */
-.botoes-flutuantes {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 999;
-}
-
-.btn-flutuante {
-  display: flex; 
-  align-items: center;
-  justify-content: center;
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  color: #ffffff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.btn-flutuante svg {
-  width: 28px;
-  height: 28px;
-  fill: #ffffff;
-}
-
-.btn-flutuante:hover {
-  transform: scale(1.1) translateY(-3px); 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Cores específicas */
-.btn-flutuante.whatsapp {
-  background-color: #25D366;
-}
-
-.btn-flutuante.instagram {
-  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-}
-
-
-.menu-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-}
-
-.tag-novidade {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: #e63946;       /* vermelho elegante */
-  color: #fff;
-  font-weight: bold;
-  font-size: 0.85rem;
-  padding: 5px 12px;
-  border-radius: 20px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-
-.menu-item img {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-}
-
-
-/* ================================================= */
-/* --- INÍCIO DAS REGRAS ESPECÍFICAS PARA MOBILE --- */
-/* ================================================= */
-
+/* Mobile */
 @media (max-width: 768px) {
-  
-  /* Fundo Mobile */
-  body::before {
-    background-image: url('lemi_background_mobile.png');
-    background-position: top center;
-    background-size: 80% auto; /* Tamanho ajustado para mobile */
-  }
+  .sobre-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hero-main-logo { max-width: 300px; }
+  .cta-group { flex-direction: column; }
+  .btn { width: 100%; text-align: center; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .depoimentos-grid { grid-template-columns: 1fr; }
+}
 
-  /* Container Mobile */
-  .container {
-    padding: 0 15px;
-  }
-
-  /* Menu/Nav Mobile (Centralizado) */
-  .navbar .container {
-    flex-direction: column;
-    align-items: center; 
-    text-align: center;
-  }
-
-  .logo {
-    display: block;
-    margin-bottom: 1rem; 
-  }
-
-  .logo-img {
-    margin: 0 auto; 
-    height: 50px; 
-  }
-
-  .nav-links {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 0;
-    align-items: center; 
-    text-align: center;
-  }
-
-  .nav-links li {
-    margin-left: 0; 
-    margin-bottom: 0.5rem;
-  }
-
-  /* Hero Mobile (Como uma seção normal) */
-  .hero {
-    height: auto; 
-    padding: 5rem 0;  /* << Igual ao .content-page */
-  }
-
-  .hero h1 {
-    font-size: 2.5rem; 
-  }
-
-  .hero p {
-    font-size: 1.1rem; 
-    margin-bottom: 2rem;
-  }
-
-  .cta-buttons {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .cta-buttons .btn {
-    margin: 10px 0;
-    width: 100%;
-  }
-  
-  /* Títulos de Página Mobile */
-  .content-page h1 {
-    font-size: 2.2rem;
-  }
-
-  /* Grid de 1 coluna Mobile */
-  .menu-grid,
-  .depoimentos-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* Depoimentos Mobile */
-  .depoimentos h2 {
-    font-size: 2.2rem;
-  }
-
-  /* Sobre Nós Mobile (Texto centralizado e em cima) */
-  .sobre-nos h2 {
-    font-size: 2.2rem; 
-    margin-bottom: 2rem;
-  }
-
-  .sobre-nos-grid {
-    grid-template-columns: 1fr; 
-    gap: 2rem;
-  }
-
-  .sobre-nos-texto {
-    grid-row: 1; 
-    text-align: center; /* << Centraliza o texto */
-  }
-
-
-  .sobre-nos-imagem {
-    grid-row: 2; /* Imagem abaixo */
-  }
-
-  /* Botões Flutuantes Mobile */
-  .botoes-flutuantes {
-    bottom: 15px;
-    right: 15px;
-    gap: 10px;
-  }
-
-  .btn-flutuante {
-    width: 48px;
-    height: 48px;
-  }
-
-  .btn-flutuante svg {
-    width: 24px;
-    height: 24px;
-  }
-  
-} /* --- FIM DAS REGRAS DE MOBILE --- */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }

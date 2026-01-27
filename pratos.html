@@ -1,199 +1,128 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu de Pratos - Lemi Gastrobar</title>
+  <title>Menu de Pratos | Lemi Gastrobar</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo_lemi_no_bg.png">
 </head>
 <body>
 
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="logo_lemi_no_bg.png" alt="Logo Lemi Gastrobar" class="logo-img">
+        <img src="logo_lemi_no_bg.png" alt="Lemi Logo" class="logo-img">
       </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Início</a></li>
-          <li><a href="reservas.html">Reservas</a></li>
-          <li><a href="pratos.html" class="ativo">Pratos</a></li>
-          <li><a href="drinks.html">Drinks</a></li>
-        </ul>
-      </nav>
+      
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="pratos.html" class="ativo">Menu</a></li>
+            <li><a href="drinks.html">Bar</a></li>
+          </ul>
+        </nav>
+        <button id="theme-btn" class="theme-toggle" aria-label="Alternar Tema">◑</button>
+      </div>
     </div>
   </header>
 
-  <main class="content-page">
-    <div class="container">
-      <h1 class="fonte-titulo-menu">Menu de Pratos</h1>
-      <p class="fonte-conteudo-menu" style="text-align:center; margin-bottom:2rem; font-size:1.2rem;">
-        Para comer sozinho ou compartilhar
-      </p>
+  <main>
+    <section class="hero-internal">
+      <div class="hero-content">
+        <span class="hero-subtitle">Para compartilhar</span>
+        <h1>Nossa Cozinha</h1>
+        <p>Ingredientes locais, técnica global e alma artesanal.</p>
+      </div>
+    </section>
 
+    <section class="container">
       <div class="menu-grid">
-
+        
         <div class="menu-item">
-          <div class="tag-novidade">NOVO</div>
-          <img src="https://picsum.photos/seed/pan-tomaca/400/300" alt="Foto de Pan Tomaca">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">PAN TOMACA (vegano)</h3>
-            <p class="fonte-conteudo-menu">Pão de fermentação natural com tomate ralado e marinado, azeite de oliva, flor de sal e tomilho. R$ 24,00</p>
+          <div class="tag">Novo</div>
+          <div class="menu-img-container">
+            <img src="https://picsum.photos/seed/pan-tomaca/400/300" alt="Pan Tomaca">
+          </div>
+          <div class="menu-content">
+            <div class="menu-header">
+              <h3>Pan Tomaca (Vegano)</h3>
+              <span class="price">R$ 24</span>
+            </div>
+            <p class="menu-desc">Pão de fermentação natural tostado, tomate ralado marinado, azeite extra virgem e flor de sal.</p>
           </div>
         </div>
 
         <div class="menu-item">
-          <img src="https://picsum.photos/seed/pan-tomaca-jamon/400/300" alt="Foto de Pan Tomaca com Jamon">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">PAN TOMACA COM JAMON</h3>
-            <p class="fonte-conteudo-menu">Pan Tomaca com adicional de presunto cru. R$ 28,00</p>
+          <div class="menu-img-container">
+            <img src="https://picsum.photos/seed/steak-tartare/400/300" alt="Steak Tartare">
+          </div>
+          <div class="menu-content">
+            <div class="menu-header">
+              <h3>Steak Tartare</h3>
+              <span class="price">R$ 57</span>
+            </div>
+            <p class="menu-desc">Carne crua de Angus picada na ponta da faca, gema curada, mostarda dijon e picles caseiro.</p>
           </div>
         </div>
 
         <div class="menu-item">
-          <img src="https://picsum.photos/seed/bolinho-barreado/400/300" alt="Foto de Bolinho de Barreado">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">BOLINHO DE BARREADO (4 UND)</h3>
-            <p class="fonte-conteudo-menu">Barreado tradicional com farinha de mandioca do Litoral, servido em formato de bolinho, recheado com banana. R$ 36,00</p>
+          <div class="menu-img-container">
+            <img src="https://picsum.photos/seed/burrata/400/300" alt="Burrata">
+          </div>
+          <div class="menu-content">
+            <div class="menu-header">
+              <h3>Burrata & Atum</h3>
+              <span class="price">R$ 99</span>
+            </div>
+            <p class="menu-desc">Burrata cremosa, atum curado na casa, tomatinhos confit e azeite de manjericão.</p>
           </div>
         </div>
 
         <div class="menu-item">
-          <img src="https://picsum.photos/seed/burrata-atum/400/300" alt="Foto de Burrata com Atum Curado">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">BURRATA COM ATUM CURADO</h3>
-            <p class="fonte-conteudo-menu">Burrata ultra cremosa, atum curado, tomatinhos assados, azeite de ervas, picles de maçã verde. R$ 99,00</p>
+          <div class="menu-img-container">
+            <img src="https://picsum.photos/seed/katsu/400/300" alt="Katsu Sando">
           </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/burrata-tomate/400/300" alt="Foto de Burrata com Texturas de Tomate">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">BURRATA COM TEXTURAS DE TOMATE</h3>
-            <p class="fonte-conteudo-menu">Burrata acompanhada de tomatinhos cereja assados, tomate fresco ralado e parmesão ralado. R$ 86,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/batata-frita/400/300" alt="Foto de Batata Frita com Ervas e Parmesão">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">BATATA FRITA COM ERVAS E PARMESÃO</h3>
-            <p class="fonte-conteudo-menu">Batata frita da casa, finalizada com ervas frescas e queijo parmesão. R$ 32,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/steak-tartare/400/300" alt="Foto de Steak Tartare">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">STEAK TARTARE</h3>
-            <p class="fonte-conteudo-menu">Carne crua de Angus picada na ponta da faca, tempero da casa. R$ 57,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/tartare-atum/400/300" alt="Foto de Tartare de Atum">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">TARTARE DE ATUM EM FOCACCIA GOCHUJANG (2 und)</h3>
-            <p class="fonte-conteudo-menu">Tartare de atum curado em focaccia levemente picante. R$ 50,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/katsu-sando/400/300" alt="Foto de Katsu Sando">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">KATSU SANDO</h3>
-            <p class="fonte-conteudo-menu">Sanduíche de barriga de porco empanada, picles da casa e molho tonkatsu. R$ 36,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/kafta/400/300" alt="Foto de Kafta Cordeiro">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">KAFTA CORDEIRO</h3>
-            <p class="fonte-conteudo-menu">Kafta de cordeiro (3 und) com hommus de edamame e tzatziki. R$ 65,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/bao/400/300" alt="Foto de Bao Camarão e Bacon">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">BAO CAMARÃO E BACON (2 UND)</h3>
-            <p class="fonte-conteudo-menu">Pão cozido no vapor recheado com camarões e bacon. R$ 51,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/vinagrete-lula/400/300" alt="Foto de Vinagrete de Lula">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">VINAGRETE DE LULA COM JAMON</h3>
-            <p class="fonte-conteudo-menu">Vinagrete de lula com presunto cru e pimenta de cheiro. R$ 46,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/moules/400/300" alt="Foto de Moules Frites">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">MOULES FRITES</h3>
-            <p class="fonte-conteudo-menu">Mexilhões salteados ao molho de alho, vinho branco e creme. R$ 74,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/arroz-costela/400/300" alt="Foto de Arroz de Costela">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">ARROZ DE COSTELA</h3>
-            <p class="fonte-conteudo-menu">Arroz de costela desfiada, brócolis e castanhas. R$ 65,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/veggie-bowl/400/300" alt="Foto de Veggie Bowl">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">VEGGIE BOWL</h3>
-            <p class="fonte-conteudo-menu">Seleção de vegetais tostados com hommus de edamame. R$ 45,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/pao-fermentacao/400/300" alt="Foto de Pão de Fermentação Natural">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">PORÇÃO DE PÃO DE FERMENTAÇÃO NATURAL</h3>
-            <p class="fonte-conteudo-menu">R$ 6,00</p>
+          <div class="menu-content">
+            <div class="menu-header">
+              <h3>Katsu Sando</h3>
+              <span class="price">R$ 36</span>
+            </div>
+            <p class="menu-desc">Sanduíche japonês de barriga de porco empanada, repolho fininho e molho tonkatsu artesanal.</p>
           </div>
         </div>
 
       </div>
-
-      <h2 class="fonte-titulo-menu" style="text-align:center; margin-top:4rem; margin-bottom:2.5rem; font-size:2.5rem;">
-        SOBREMESA
-      </h2>
-
-      <div class="menu-grid">
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/mousse-chocolate/400/300" alt="Foto de Mousse de Chocolate">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">MOUSSE DE CHOCOLATE BRANCO TOSTADO</h3>
-            <p class="fonte-conteudo-menu">Servido com compota de frutas vermelhas. R$ 36,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://picsum.photos/seed/torta-chocolate/400/300" alt="Foto de Torta de Chocolate">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">TORTA DE CHOCOLATE</h3>
-            <p class="fonte-conteudo-menu">Torta cremosa com crocante e calda de cumaru. R$ 35,00</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    </section>
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="container">
-      <p class="fonte-conteudo-menu">&copy; 2025 Lemi Gastrobar. Todos os direitos reservados.</p>
+      <p>&copy; 2025 Lemi Gastrobar. Curitiba, PR.</p>
     </div>
   </footer>
+
+  <script>
+    const themeBtn = document.getElementById('theme-btn');
+    const htmlEl = document.documentElement;
+    const savedTheme = localStorage.getItem('lemi-theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+      htmlEl.setAttribute('data-theme', savedTheme);
+    } else if (systemDark) {
+      htmlEl.setAttribute('data-theme', 'dark');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', newTheme);
+      localStorage.setItem('lemi-theme', newTheme);
+    });
+  </script>
 
 </body>
 </html>

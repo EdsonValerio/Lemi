@@ -1,0 +1,298 @@
+/* style.css - Lemi Refactor "Gemini Vision" */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;600&display=swap');
+
+:root {
+  /* Paleta de Cores - Dark Premium */
+  --bg-color: #121212;
+  --surface-color: #1e1e1e;
+  --text-primary: #f0f0f0;
+  --text-secondary: #a0a0a0;
+  --accent-color: #d4af37; /* Dourado suave/Cobre */
+  --accent-hover: #bfa030;
+  
+  /* Layout */
+  --container-width: 1100px;
+  --header-height: 80px;
+  
+  /* Efeitos */
+  --glass-bg: rgba(18, 18, 18, 0.85);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.3);
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Background Texture Abstract */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('lemi_background_desktop.png'); /* Sua imagem */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08; /* Sutil textura no fundo escuro */
+  z-index: -1;
+  pointer-events: none;
+  filter: invert(1); /* Inverte a linha preta para branca se for PNG transparente */
+}
+
+/* Tipografia */
+h1, h2, h3, .nav-link, .btn {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h1 { font-size: 4.5rem; font-weight: 300; line-height: 1.1; }
+h2 { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 2rem; }
+p { color: var(--text-secondary); margin-bottom: 1.5rem; }
+
+/* --- Header & Nav (Glassmorphism) --- */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--header-height);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: var(--glass-border);
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.logo-img {
+  height: 45px;
+  filter: brightness(0) invert(1); /* Logo branca */
+  transition: var(--transition);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  position: relative;
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--accent-color);
+  transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.ativo {
+  opacity: 1;
+  color: var(--accent-color);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding-top: var(--header-height);
+}
+
+.hero-content {
+  max-width: 800px;
+  padding: 0 20px;
+  animation: fadeUp 1s ease-out;
+}
+
+.hero-subtitle {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.cta-group {
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* --- Botões Modernos --- */
+.btn {
+  display: inline-block;
+  padding: 16px 32px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-fill {
+  background-color: var(--accent-color);
+  color: #000;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0%; height: 100%;
+  background-color: var(--accent-color);
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.btn-outline:hover::before {
+  width: 100%;
+}
+
+.btn-outline:hover {
+  color: #000;
+}
+
+.btn-fill:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+
+/* --- Seções Gerais --- */
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 8rem 0;
+}
+
+/* Sobre Nós (Grid Assimétrico) */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 2px;
+  filter: grayscale(30%);
+  transition: var(--transition);
+}
+
+.image-wrapper:hover img {
+  filter: grayscale(0%);
+}
+
+.image-offset-border {
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--accent-color);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Depoimentos */
+.depoimentos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: var(--surface-color);
+  padding: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-soft);
+}
+
+.stars { color: var(--accent-color); font-size: 1rem; letter-spacing: 2px; display: block; margin-bottom: 1rem; }
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Animações */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  h1 { font-size: 3rem; }
+  .sobre-grid { grid-template-columns: 1fr; }
+  .image-offset-border { left: 10px; top: 10px; }
+  .nav-links { display: none; } /* Simplificado para demo, ideal seria menu hambúrguer */
+  .cta-group { flex-direction: column; }
+  .btn { width: 100%; text-align: center; }
+}

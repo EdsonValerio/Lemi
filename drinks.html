@@ -1,105 +1,133 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu de Drinks - Lemi Gastrobar</title>
+  <title>Bar & Drinks | Lemi Gastrobar</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="logo_lemi_no_bg.png">
 </head>
 <body>
 
   <header class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="logo_lemi_no_bg.png" alt="Logo Lemi Gastrobar" class="logo-img">
+        <img src="logo_lemi_no_bg.png" alt="Lemi Logo" class="logo-img">
       </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="index.html">Início</a></li>
-          <li><a href="reservas.html">Reservas</a></li>
-          <li><a href="pratos.html">Pratos</a></li>
-          <li><a href="drinks.html" class="ativo">Drinks</a></li>
-        </ul>
-      </nav>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="reservas.html">Reservas</a></li>
+            <li><a href="pratos.html">Menu</a></li>
+            <li><a href="drinks.html" class="ativo">Bar</a></li>
+          </ul>
+        </nav>
+        <button id="theme-btn" class="theme-toggle" aria-label="Alternar Tema">◑</button>
+      </div>
     </div>
   </header>
 
-  <main class="content-page">
-    <div class="container">
-      <h1 class="fonte-titulo-menu">Nossa Carta de Drinks</h1>
-      
+  <main>
+    <section class="hero-internal">
+      <div class="hero-content">
+        <span class="hero-subtitle">Alta Coquetelaria</span>
+        <h1>Carta de Drinks</h1>
+        <p>Clássicos perfeitos e autorais surpreendentes.</p>
+      </div>
+    </section>
+
+    <section class="container">
       <div class="menu-grid">
         
         <div class="menu-item">
-          <img src="https://via.placeholder.com/400x300.png?text=Gin+Tonica" alt="Foto do Gin Tônica da Casa">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">Gin Tônica Lemi</h3>
-            <p class="fonte-conteudo-menu">Gin premium, água tônica artesanal, zest de limão e especiarias selecionadas. Uma experiência refrescante. R$ 38,00</p>
+          <div class="menu-img-container">
+            <img src="https://via.placeholder.com/400x300.png?text=Lemi+Gin" alt="Gin Tonica">
           </div>
-        </div>
-        
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/400x300.png?text=Moscow+Mule" alt="Foto do Moscow Mule">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">Moscow Mule</h3>
-            <p class="fonte-conteudo-menu">Vodka, cerveja de gengibre, suco de limão fresco e espuma de gengibre. Servido na clássica caneca de cobre. R$ 36,00</p>
-          </div>
-        </div>
-
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/400x300.png?text=Negroni" alt="Foto do Negroni Clássico">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">Negroni Clássico</h3>
-            <p class="fonte-conteudo-menu">Uma combinação equilibrada de gin, vermute tinto doce e Campari. Um clássico atemporal. R$ 42,00</p>
-          </div>
-        </div>
-        
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/400x300.png?text=Old+Fashioned" alt="Foto do Old Fashioned">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">Old Fashioned</h3>
-            <p class="fonte-conteudo-menu">Whisky Bourbon, bitter, açúcar e um toque de casca de laranja. Um drink robusto e complexo. R$ 45,00</p>
-          </div>
-        </div>
-        
-        <div class="menu-item">
-          <img src="https://via.placeholder.com/400x300.png?text=Caipirinha" alt="Foto da Caipirinha Especial">
-          <div class="menu-item-content">
-            <h3 class="fonte-titulo-menu">Caipirinha Especial</h3>
-            <p class="fonte-conteudo-menu">Cachaça de alambique, frutas frescas da estação e açúcar demerara. Consulte as frutas disponíveis. R$ 32,00</p>
-          </div>
-        </div>
-        
-        </div>
-
-        <h2 class="fonte-titulo-menu" style="text-align: center; margin-top: 4rem; margin-bottom: 2.5rem; font-size: 2.5rem;">Cervejas & Vinhos</h2>
-
-        <div class="menu-grid">
-          <div class="menu-item">
-            <img src="https://via.placeholder.com/400x300.png?text=Cervejas" alt="Seleção de Cervejas Artesanais">
-            <div class="menu-item-content">
-              <h3 class="fonte-titulo-menu">Cervejas Artesanais</h3>
-              <p class="fonte-conteudo-menu">Uma seleção rotativa de cervejas artesanais locais e nacionais. Consulte nosso staff para as opções do dia. A partir de R$ 25,00</p>
+          <div class="menu-content">
+            <div class="menu-header">
+              <h3>Gin Tônica Lemi</h3>
+              <span class="price">R$ 38</span>
             </div>
-          </div>
-
-          <div class="menu-item">
-            <img src="https://via.placeholder.com/400x300.png?text=Vinhos" alt="Carta de Vinhos">
-            <div class="menu-item-content">
-              <h3 class="fonte-titulo-menu">Carta de Vinhos</h3>
-              <p class="fonte-conteudo-menu">Vinhos tintos, brancos e rosés cuidadosamente selecionados para harmonizar com nossos pratos. Copos e garrafas. Preços variados.</p>
-            </div>
+            <p class="menu-desc">Nosso gin infusionado com botânicos da casa, tônica artesanal e zest de siciliano.</p>
           </div>
         </div>
 
-    </div>
+        <div class="menu-item">
+          <div class="menu-img-container">
+            <img src="https://via.placeholder.com/400x300.png?text=Negroni" alt="Negroni">
+          </div>
+          <div class="menu-content">
+            <div class="menu-header">
+              <h3>Negroni</h3>
+              <span class="price">R$ 42</span>
+            </div>
+            <p class="menu-desc">Vermute tinto, Campari e Gin London Dry. Envelhecido em barril de carvalho por 15 dias.</p>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <div class="menu-img-container">
+            <img src="https://via.placeholder.com/400x300.png?text=Mule" alt="Moscow Mule">
+          </div>
+          <div class="menu-content">
+            <div class="menu-header">
+              <h3>Moscow Mule</h3>
+              <span class="price">R$ 36</span>
+            </div>
+            <p class="menu-desc">Vodka, xarope de gengibre picante, limão e espuma de gengibre. Servido na caneca.</p>
+          </div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="tag">Autoral</div>
+          <div class="menu-img-container">
+            <img src="https://via.placeholder.com/400x300.png?text=Fitzgerald" alt="Fitzgerald">
+          </div>
+          <div class="menu-content">
+            <div class="menu-header">
+              <h3>Fitzgerald Lemi</h3>
+              <span class="price">R$ 34</span>
+            </div>
+            <p class="menu-desc">Gin, limão siciliano, xarope de açúcar e Angostura. Simples, cítrico e elegante.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="text-align: center; margin-top: 5rem; margin-bottom: 2rem;">
+        <h2 style="font-size: 2rem;">Vinhos & Cervejas</h2>
+        <p>Temos uma adega selecionada e chopp artesanal rotativo.<br>Consulte a disponibilidade com nossa equipe.</p>
+      </div>
+
+    </section>
   </main>
 
-  <footer class="footer">
+  <footer>
     <div class="container">
-      <p class="fonte-conteudo-menu">&copy; 2025 Lemi Gastrobar. Todos os direitos reservados.</p>
+      <p>&copy; 2025 Lemi Gastrobar. Curitiba, PR.</p>
     </div>
   </footer>
+
+  <script>
+    const themeBtn = document.getElementById('theme-btn');
+    const htmlEl = document.documentElement;
+    const savedTheme = localStorage.getItem('lemi-theme');
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme) {
+      htmlEl.setAttribute('data-theme', savedTheme);
+    } else if (systemDark) {
+      htmlEl.setAttribute('data-theme', 'dark');
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const currentTheme = htmlEl.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', newTheme);
+      localStorage.setItem('lemi-theme', newTheme);
+    });
+  </script>
 
 </body>
 </html>
