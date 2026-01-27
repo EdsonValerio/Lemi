@@ -1,4 +1,4 @@
-/* style.css - Lemi Gastrobar (One Page - Final v2) */
+/* style.css - Lemi Gastrobar (Versão Final v3 - One Page) */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;600&display=swap');
 
@@ -16,8 +16,9 @@
   --glass-border: 1px solid rgba(0, 0, 0, 0.05);
   --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
   
-  /* Utilitários */
-  --logo-filter: none;
+  /* Utilitários de Filtro */
+  --logo-filter: none;      /* Logo original no modo claro */
+  --bg-filter: none;        /* Background original no modo claro */
   --hero-overlay: rgba(255, 255, 255, 0.6);
   
   /* Layout */
@@ -26,7 +27,7 @@
   --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- DARK MODE --- */
+/* --- DARK MODE (Ajuste Fino de Identidade) --- */
 [data-theme="dark"] {
   --bg-color: #121212;
   --surface-color: #1e1e1e;
@@ -39,7 +40,13 @@
   --glass-border: 1px solid rgba(255, 255, 255, 0.08);
   --shadow-soft: 0 10px 30px rgba(0,0,0,0.3);
   
+  /* LOGO: Fica totalmente branca para contraste máximo */
   --logo-filter: brightness(0) invert(1);
+  
+  /* BACKGROUND: O segredo da tonalidade escura */
+  /* invert(1) deixa branco, brightness(0.2) escurece para cinza chumbo */
+  --bg-filter: invert(1) brightness(0.2); 
+  
   --hero-overlay: rgba(18, 18, 18, 0.7);
 }
 
@@ -65,8 +72,14 @@ body::before {
   content: ""; position: fixed; inset: 0;
   background-image: url('lemi_background_desktop.png');
   background-size: cover; background-position: center;
-  opacity: 0.05; z-index: -1; pointer-events: none;
-  filter: var(--logo-filter); transition: var(--transition);
+  
+  /* Opacidade ajustada para manter a sutileza em ambos os modos */
+  opacity: 0.08; 
+  z-index: -1; pointer-events: none;
+  
+  /* Aplica o filtro exclusivo do background (separado da logo) */
+  filter: var(--bg-filter); 
+  transition: var(--transition);
 }
 
 /* Tipografia */
@@ -167,7 +180,7 @@ section:last-of-type { border-bottom: none; }
 .reservas-list li { margin-bottom: 0.8rem; display: flex; align-items: center; gap: 10px; color: var(--text-secondary); }
 .reservas-list li::before { content: "•"; color: var(--accent-color); font-size: 1.5rem; }
 
-/* --- CARDS DE DEPOIMENTO (RESTAURADO) --- */
+/* --- CARDS DE DEPOIMENTO --- */
 .depoimentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .card {
   background: var(--surface-color); padding: 2.5rem;
