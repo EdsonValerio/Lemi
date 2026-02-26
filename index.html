@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="logo_lemi_no_bg.png">
 </head>
+
 <body>
 
   <header class="navbar">
@@ -14,19 +16,26 @@
       <a href="#inicio" class="logo">
         <img src="logo_lemi_no_bg.png" alt="Lemi Logo" class="logo-img">
       </a>
-      
+
       <div style="display: flex; align-items: center; gap: 20px;">
         <nav>
           <ul class="nav-links">
             <li><a href="#sobre">O Lemi</a></li>
             <li><a href="#pratos">Pratos</a></li>
             <li><a href="#drinks">Drinks</a></li>
-            <li><a href="#reservas">Reservas</a></li>
+            <li><a href="#aniversarios">Aniversários</a></li>
+            <li><a href="#reservas">Reserva</a></li>
           </ul>
         </nav>
 
         <button id="theme-btn" class="theme-toggle" aria-label="Alternar Tema">
           ◑
+        </button>
+
+        <button class="menu-toggle" id="mobile-menu-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </div>
@@ -35,9 +44,7 @@
   <main>
     <section id="inicio" class="hero">
       <div class="hero-content">
-        <span class="hero-subtitle">Gastronomia & Coquetelaria</span>
-        <img src="logo_lemi_no_bg(1).png" alt="Lemi Gastrobar" class="hero-main-logo">
-        <p>Um refúgio urbano onde ingredientes frescos encontram técnicas inovadoras.</p>
+        <img src="logo_lemi_no_bg.png" alt="Lemi Gastrobar" class="hero-main-logo">
         <div class="cta-group">
           <a href="#reservas" class="btn btn-fill">Fazer Reserva</a>
           <a href="#pratos" class="btn btn-outline">Ver Menu</a>
@@ -50,12 +57,22 @@
         <div class="sobre-grid">
           <div class="image-wrapper">
             <div class="image-offset-border"></div>
-            <img src="https://picsum.photos/seed/lemi-interior/600/500" alt="Interior Lemi">
+            <div class="carousel" id="sobre-carousel">
+              <div class="carousel-inner">
+                <img src="interior/interior1.jpg" alt="Interior Lemi 1"
+                  class="carousel-img active">
+                <img src="interior/interior2.jpg" alt="Interior Lemi 2" class="carousel-img">
+                <img src="interior/interior3.jpg" alt="Interior Lemi 3" class="carousel-img">
+                <img src="interior/interior4.jpg" alt="Interior Lemi 4" class="carousel-img">
+              </div>
+            </div>
           </div>
           <div class="texto-wrapper">
             <h2>Nossa Essência</h2>
             <p>
-              No coração da cidade, o Lemi surge como uma pausa necessária. Não servimos apenas comida; servimos momentos. Nossa cozinha autoral valoriza o produtor local, enquanto nosso bar conta histórias através de insumos botânicos.
+              No coração da cidade, o Lemi surge como uma pausa necessária. Não servimos apenas comida; servimos
+              momentos. Nossa cozinha autoral valoriza o produtor local, enquanto nosso bar conta histórias através de
+              insumos botânicos.
             </p>
             <p>
               O design minimalista e a iluminação acolhedora preparam o palco para o verdadeiro protagonista: o sabor.
@@ -67,39 +84,323 @@
 
     <section id="pratos">
       <div class="container">
-        <h2>Para Compartilhar</h2>
-        <p style="text-align: center; margin-bottom: 3rem;">Uma seleção de pratos pensados para estar no centro da mesa.</p>
-        
+        <h2>Nossos Pratos</h2>
+        <p style="text-align: center; margin-bottom: 3rem;">Uma seleção de pratos pensados para estar no centro da mesa.
+        </p>
+
         <div class="menu-grid">
-            <div class="menu-item">
-                <div class="tag">Novo</div>
-                <div class="menu-img-container"><img src="https://picsum.photos/seed/pan-tomaca/400/300" alt="Pan Tomaca"></div>
-                <div class="menu-content">
-                    <div class="menu-header"><h3>Pan Tomaca (Vegano)</h3><span class="price">R$ 24</span></div>
-                    <p class="menu-desc">Pão de fermentação natural com tomate ralado, azeite e flor de sal.</p>
+          <div class="menu-item" data-name="Pan Tomaca"
+            data-desc="Pão de fermentação natural com tomate ralado e marinado, azeite de oliva, flor de sal e tomilho. Simples e delicioso.">
+            <div class="tag">Vegano</div>
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/pantomaca.jpg" alt="Pan Tomaca" class="carousel-img active">
+                  <img src="pratos/pantomaca2.jpg" alt="Tomato detail" class="carousel-img">
+                  <img src="pratos/pantomaca3.jpg" alt="Bread detail" class="carousel-img">
                 </div>
+              </div>
             </div>
-            <div class="menu-item">
-                <div class="menu-img-container"><img src="https://picsum.photos/seed/steak-tartare/400/300" alt="Steak Tartare"></div>
-                <div class="menu-content">
-                    <div class="menu-header"><h3>Steak Tartare</h3><span class="price">R$ 57</span></div>
-                    <p class="menu-desc">Carne crua de Angus na ponta da faca, tempero da casa e crocantes.</p>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Pan Tomaca</h3><span class="price">R$ 24,00</span>
+              </div>
+              <p class="menu-desc">Pão de fermentação natural com tomate ralado e marinado, azeite de oliva, flor de sal
+                e tomilho. Simples e delicioso.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Pan Tomaca com Jamon" data-desc="Pan Tomaca com adicional de presunto cru.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/pantomacaramon.jpg" alt="Pan Tomaca com Jamon" class="carousel-img active">
+                  <img src="pratos/pantomacaramon2.jpg" alt="Jamon detail" class="carousel-img">
+                  <img src="pratos/pantomacaramon3.jpg" alt="Jamon detail" class="carousel-img">
                 </div>
+              </div>
             </div>
-            <div class="menu-item">
-                <div class="menu-img-container"><img src="https://picsum.photos/seed/burrata/400/300" alt="Burrata"></div>
-                <div class="menu-content">
-                    <div class="menu-header"><h3>Burrata & Atum</h3><span class="price">R$ 99</span></div>
-                    <p class="menu-desc">Burrata ultra cremosa, atum curado na casa e tomatinhos assados.</p>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Pan Tomaca com Jamon</h3><span class="price">R$ 28,00</span>
+              </div>
+              <p class="menu-desc">Pan Tomaca com adicional de presunto cru.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Bolinho de Barreado"
+            data-desc="Barreado tradicional com farinha de mandioca do Litoral, servido em formato de bolinho, recheado com banana.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/bolinhobarreado.jpg" alt="Bolinho de Barreado"
+                    class="carousel-img active">
+                  <img src="pratos/bolinhobarreado2.jpg" alt="Banana detail" class="carousel-img">
+                  <img src="pratos/bolinhobarreado3.jpg" alt="Banana detail" class="carousel-img">
+                  <img src="pratos/bolinhobarreado4.jpg" alt="Banana detail" class="carousel-img">
+                  <img src="pratos/bolinhobarreado5.jpg" alt="Banana detail" class="carousel-img">
                 </div>
+              </div>
             </div>
-            <div class="menu-item">
-                <div class="menu-img-container"><img src="https://picsum.photos/seed/katsu/400/300" alt="Katsu Sando"></div>
-                <div class="menu-content">
-                    <div class="menu-header"><h3>Katsu Sando</h3><span class="price">R$ 36</span></div>
-                    <p class="menu-desc">Sanduíche de barriga de porco empanada, picles e molho tonkatsu.</p>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Bolinho de Barreado (4 und)</h3><span class="price">R$ 36,00</span>
+              </div>
+              <p class="menu-desc">Barreado tradicional com farinha de mandioca do Litoral, servido em formato de
+                bolinho, recheado com banana.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Burrata com Atum Curado"
+            data-desc="Burrata Mozzarelart, Atum (cru) curado fatiado, tomatinhos assados, azeite de ervas, picles de maçã verde e semente de girassol.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/burratacomatum.jpg" alt="Burrata com Atum"
+                    class="carousel-img active">
+                  <img src="pratos/burratacomatum2.jpg" alt="Burrata detail" class="carousel-img">
+                  <img src="pratos/burratacomatum3.jpg" alt="Burrata detail" class="carousel-img">
+                  <img src="pratos/burratacomatum4.jpg" alt="Burrata detail" class="carousel-img">
                 </div>
+              </div>
             </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Burrata com Atum Curado</h3><span class="price">R$ 99,00</span>
+              </div>
+              <p class="menu-desc">Burrata Mozzarelart, Atum (cru) curado fatiado, tomatinhos assados, azeite de ervas,
+                picles de maçã verde e semente de girassol.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Burrata com Texturas de Tomate"
+            data-desc="Burrata Mozzarellart acompanhada de tomatinhos cereja assados, tomate fresco ralado, picles de maçã verde e azeite de ervas.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/burrata.jpg" alt="Burrata Tomate"
+                    class="carousel-img active">
+                  <img src="pratos/burrata2.jpg" alt="Tomato detail" class="carousel-img">
+                  <img src="pratos/burrata3.jpg" alt="Tomato detail" class="carousel-img">
+                  <img src="pratos/burrata4.jpg" alt="Tomato detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Burrata com Texturas de Tomate</h3><span class="price">R$ 86,00</span>
+              </div>
+              <p class="menu-desc">Burrata Mozzarellart acompanhada de tomatinhos cereja assados, tomate fresco ralado,
+                picles de maçã verde e azeite de ervas.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Batata Frita com Ervas e Parmesão"
+            data-desc="Batata frita da casa artesanal, finalizada com ervas frescas e queijo parmesão. Acompanha maionese da casa.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="https://picsum.photos/seed/fries1/400/300" alt="Batata Frita" class="carousel-img active">
+                  <img src="https://picsum.photos/seed/fries2/400/300" alt="Fries detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Batata Frita com Ervas e Parmesão</h3><span class="price">R$ 32,00</span>
+              </div>
+              <p class="menu-desc">Batata frita da casa artesanal, finalizada com ervas frescas e queijo parmesão.
+                Acompanha maionese da casa.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Steak Tartare"
+            data-desc="Carne crua de Angus picada na ponta da faca, com tempero da casa. Acompanha pão de fermentação natural.">
+            <div class="tag">Destaque</div>
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="https://picsum.photos/seed/steak1/400/300" alt="Steak Tartare" class="carousel-img active">
+                  <img src="https://picsum.photos/seed/steak2/400/300" alt="Steak detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Steak Tartare</h3><span class="price">R$ 57,00</span>
+              </div>
+              <p class="menu-desc">Carne crua de Angus picada na ponta da faca, com tempero da casa. Acompanha pão de
+                fermentação natural.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Tartare de Atum em Focaccia"
+            data-desc="Tartare de atum curado em focaccia Gochujang levemente picante, com creme de iogurte, limão e gergelim.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/tartaredeatum.jpg" alt="Tartare de Atum" class="carousel-img active">
+                  <img src="pratos/tartaredeatum2.jpg" alt="Tuna detail" class="carousel-img">
+                  <img src="pratos/tartaredeatum3.jpg" alt="Tuna detail" class="carousel-img">
+                  <img src="pratos/tartaredeatum4.jpg" alt="Tuna detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Tartare de Atum em Focaccia (2 und)</h3><span class="price">R$ 50,00</span>
+              </div>
+              <p class="menu-desc">Tartare de atum curado em focaccia Gochujang levemente picante, com creme de iogurte,
+                limão e gergelim.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Katsu Sando"
+            data-desc="Sanduíche de barriga de porco (7h de cozimento), empanada, picles, aioli e molho tonkatsu no pão de leite.">
+            <div class="tag">Best Seller</div>
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="https://picsum.photos/seed/katsu1/400/300" alt="Katsu Sando" class="carousel-img active">
+                  <img src="https://picsum.photos/seed/katsu2/400/300" alt="Katsu detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Katsu Sando</h3><span class="price">R$ 36,00</span>
+              </div>
+              <p class="menu-desc">Sanduíche de barriga de porco (7h de cozimento), empanada, picles, aioli e molho
+                tonkatsu no pão de leite.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Kafta Cordeiro"
+            data-desc="3 unidades acompanhadas de Hommus de Edamame, Tzatziki e salada crocante. Acompanha pão pita.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/kaftacordeiro.jpg" alt="Kafta Cordeiro" class="carousel-img active">
+                  <img src="pratos/kaftacordeiro2.jpg" alt="Kafta detail" class="carousel-img">
+                  <img src="pratos/kaftacordeiro3.jpg" alt="Kafta detail" class="carousel-img">
+                  <img src="pratos/kaftacordeiro4.jpg" alt="Kafta detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Kafta Cordeiro</h3><span class="price">R$ 65,00</span>
+              </div>
+              <p class="menu-desc">3 unidades acompanhadas de Hommus de Edamame, Tzatziki e salada crocante. Acompanha
+                pão pita.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Bao Camarão e Bacon"
+            data-desc="Pãozinho no vapor recheado com camarões chapeados, bacon, salada e mel fermentado levemente picante.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/baodecamarao.jpg" alt="Bao Camarão" class="carousel-img active">
+                  <img src="pratos/baodecamarao2.jpg" alt="Bao detail" class="carousel-img">
+                  <img src="pratos/baodecamarao3.jpg" alt="Bao detail" class="carousel-img">
+                  <img src="pratos/baodecamarao4.jpg" alt="Bao detail" class="carousel-img">
+                  <img src="pratos/baodecamarao5.jpg" alt="Bao detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Bao Camarão e Bacon (2 und)</h3><span class="price">R$ 51,00</span>
+                <p class="menu-desc">Pãozinho no vapor recheado com camarões chapeados, bacon, salada e mel fermentado
+                  levemente picante.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Veggie Bowl"
+            data-desc="Seleção de vegetais tostados, assados e grelhados servidos com Hommus de Edamame e castanhas.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/veggiebowl.jpg" alt="Veggie Bowl" class="carousel-img active">
+                  <img src="pratos/veggiebowl2.jpg" alt="Veggie detail" class="carousel-img">
+                  <img src="pratos/veggiebowl3.jpg" alt="Veggie detail" class="carousel-img">
+                  <img src="pratos/veggiebowl4.jpg" alt="Veggie detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Veggie Bowl</h3><span class="price">R$ 45,00</span>
+              </div>
+              <p class="menu-desc">Seleção de vegetais tostados, assados e grelhados servidos com Hommus de Edamame e
+                castanhas.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Porção de Pão de Fermentação Natural"
+            data-desc="Pão artesanal de fermentação lenta da casa.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="https://picsum.photos/seed/bread2/400/300" alt="Porção Pão" class="carousel-img active">
+                  <img src="https://picsum.photos/seed/bread3/400/300" alt="Bread detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Porção de Pão de Fermentação Natural</h3><span class="price">R$ 6,00</span>
+              </div>
+              <p class="menu-desc">Pão artesanal de fermentação lenta da casa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobremesas" style="padding: 4rem 0;">
+      <div class="container">
+        <h2>Sobremesas</h2>
+        <div class="menu-grid">
+          <div class="menu-item" data-name="Mousse de Chocolate Branco Tostado"
+            data-desc="Servido com compota de frutas vermelhas e placas de merengue cítrico.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="https://picsum.photos/seed/mousse1/400/300" alt="Mousse" class="carousel-img active">
+                  <img src="https://picsum.photos/seed/mousse2/400/300" alt="Mousse detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Mousse de Chocolate Branco Tostado</h3><span class="price">R$ 36,00</span>
+              </div>
+              <p class="menu-desc">Servido com compota de frutas vermelhas e placas de merengue cítrico.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Torta de Chocolate"
+            data-desc="Torta super cremosa de chocolate, servida com crocante de Chocokrispis e calda de Cumaru.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="pratos/tortachocolate.jpg" alt="Torta" class="carousel-img active">
+                  <img src="pratos/tortachocolate2.jpg" alt="Cake detail" class="carousel-img">
+                  <img src="pratos/tortachocolate3.jpg" alt="Cake detail" class="carousel-img">
+                </div>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Torta de Chocolate</h3><span class="price">R$ 35,00</span>
+              </div>
+              <p class="menu-desc">Torta super cremosa de chocolate, servida com crocante de Chocokrispis e calda de
+                Cumaru.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -107,33 +408,68 @@
     <section id="drinks">
       <div class="container">
         <h2>Bar & Coquetelaria</h2>
-        
+
         <div class="menu-grid">
-            <div class="menu-item">
-                <div class="menu-img-container"><img src="https://via.placeholder.com/400x300.png?text=Lemi+Gin" alt="Gin Tonica"></div>
-                <div class="menu-content">
-                    <div class="menu-header"><h3>Gin Tônica Lemi</h3><span class="price">R$ 38</span></div>
-                    <p class="menu-desc">Gin premium, especiarias e zest de limão siciliano.</p>
+          <div class="menu-item" data-name="Gin Tônica Lemi"
+            data-desc="Gin premium, especiarias e zest de limão siciliano.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="https://via.placeholder.com/400x300.png?text=Lemi+Gin" alt="Gin Tonica"
+                    class="carousel-img active">
+                  <img src="https://picsum.photos/seed/gin1/400/300" alt="Gin detail" class="carousel-img">
                 </div>
+              </div>
             </div>
-            <div class="menu-item">
-                <div class="menu-img-container"><img src="https://via.placeholder.com/400x300.png?text=Negroni" alt="Negroni"></div>
-                <div class="menu-content">
-                    <div class="menu-header"><h3>Negroni Clássico</h3><span class="price">R$ 42</span></div>
-                    <p class="menu-desc">Gin, Campari e Vermute tinto. Equilíbrio perfeito.</p>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Gin Tônica Lemi</h3><span class="price">R$ 38</span>
+              </div>
+              <p class="menu-desc">Gin premium, especiarias e zest de limão siciliano.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Negroni Clássico"
+            data-desc="Gin, Campari e Vermute tinto. Equilíbrio perfeito.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="https://via.placeholder.com/400x300.png?text=Negroni" alt="Negroni"
+                    class="carousel-img active">
+                  <img src="https://picsum.photos/seed/negroni1/400/300" alt="Negroni detail" class="carousel-img">
                 </div>
+              </div>
             </div>
-            <div class="menu-item">
-                <div class="menu-img-container"><img src="https://via.placeholder.com/400x300.png?text=Mule" alt="Moscow Mule"></div>
-                <div class="menu-content">
-                    <div class="menu-header"><h3>Moscow Mule</h3><span class="price">R$ 36</span></div>
-                    <p class="menu-desc">Vodka, espuma de gengibre e limão na caneca de cobre.</p>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Negroni Clássico</h3><span class="price">R$ 42</span>
+              </div>
+              <p class="menu-desc">Gin, Campari e Vermute tinto. Equilíbrio perfeito.</p>
+            </div>
+          </div>
+
+          <div class="menu-item" data-name="Moscow Mule"
+            data-desc="Vodka, espuma de gengibre e limão na caneca de cobre.">
+            <div class="menu-img-container">
+              <div class="carousel">
+                <div class="carousel-inner">
+                  <img src="https://via.placeholder.com/400x300.png?text=Mule" alt="Moscow Mule"
+                    class="carousel-img active">
+                  <img src="https://picsum.photos/seed/mule1/400/300" alt="Mule detail" class="carousel-img">
                 </div>
+              </div>
             </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3>Moscow Mule</h3><span class="price">R$ 36</span>
+              </div>
+              <p class="menu-desc">Vodka, espuma de gengibre e limão na caneca de cobre.</p>
+            </div>
+          </div>
         </div>
-        
+
         <div style="text-align: center; margin-top: 3rem;">
-            <p>Vinhos e Chopp Artesanal disponíveis. Consulte o staff.</p>
+          <p>Vinhos e Chopp Artesanal disponíveis. Consulte o staff.</p>
         </div>
       </div>
     </section>
@@ -142,19 +478,19 @@
       <div class="container">
         <h2>Garanta sua Mesa</h2>
         <div class="reservas-box">
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                Reservas antecipadas garantem a melhor experiência.
-            </p>
-            <ul class="reservas-list">
-                <li>Agendamento exclusivo via WhatsApp</li>
-                <li>Tolerância de 15 minutos</li>
-                <li>Grupos acima de 6 pessoas: reservar com 24h de antecedência</li>
-            </ul>
-            <br>
-            <a href="https://api.whatsapp.com/send?phone=5541999998888&text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20Lemi." 
-               target="_blank" class="btn btn-fill" style="background-color: #25D366; border-color: #25D366; color: #fff;">
-               Chamar no WhatsApp
-            </a>
+          <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+            Reservas antecipadas garantem a melhor experiência.
+          </p>
+          <ul class="reservas-list">
+            <li>Agendamento exclusivo via WhatsApp</li>
+            <li>Tolerância de 15 minutos</li>
+            <li>Grupos acima de 6 pessoas: reservar com 24h de antecedência</li>
+          </ul>
+          <br>
+          <a href="https://api.whatsapp.com/send?phone=5541999998888&text=Olá!%20Gostaria%20de%20fazer%20uma%20reserva%20no%20Lemi."
+            target="_blank" class="btn btn-fill" style="background-color: #25D366; border-color: #25D366; color: #fff;">
+            Chamar no WhatsApp
+          </a>
         </div>
       </div>
     </section>
@@ -163,25 +499,56 @@
       <div class="container">
         <h2 style="text-align: center;">O Que Dizem</h2>
         <div class="depoimentos-grid">
-          
+
           <div class="card">
             <span class="stars">★★★★★</span>
-            <p>"O Katsu Sando é inesquecível. A harmonia entre o ambiente e o prato cria uma experiência sensorial única."</p>
+            <p>"O Katsu Sando é inesquecível. A harmonia entre o ambiente e o prato cria uma experiência sensorial
+              única."</p>
             <h3>- Juliana M.</h3>
           </div>
-          
+
           <div class="card">
             <span class="stars">★★★★★</span>
-            <p>"Melhor carta de drinks da cidade. O atendimento é impecável, com garçons que realmente entendem do menu."</p>
+            <p>"Melhor carta de drinks da cidade. O atendimento é impecável, com garçons que realmente entendem do
+              menu."</p>
             <h3>- Rafael G.</h3>
           </div>
-          
+
           <div class="card">
             <span class="stars">★★★★★</span>
-            <p>"Ambiente sofisticado sem ser pretensioso. O arroz de costela é comfort food elevado à alta gastronomia."</p>
+            <p>"Ambiente sofisticado sem ser pretensioso. O arroz de costela é comfort food elevado à alta gastronomia."
+            </p>
             <h3>- Carlos P.</h3>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <section id="aniversarios">
+      <div class="container">
+        <div class="sobre-grid">
+          <div class="texto-wrapper">
+            <h2>Faça seu Aniversário</h2>
+            <p>
+              Celebre seu dia especial em um ambiente que combina sofisticação e acolhimento. No Lemi Gastrobar,
+              transformamos seu aniversário em uma experiência gastronômica memorável para você e seus convidados.
+            </p>
+            <p>
+              Oferecemos menus personalizados, coquetelaria de autor e um atendimento dedicado para garantir que cada
+              detalhe seja perfeito. Seja um brinde íntimo ou uma comemoração maior, o Lemi é o cenário ideal.
+            </p>
+            <br>
+            <a href="https://api.whatsapp.com/send?phone=5541999998888&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20comemorar%20meu%20aniversário%20no%20Lemi."
+              target="_blank" class="btn btn-fill"
+              style="background-color: #25D366; border-color: #25D366; color: #fff;">
+              Reservar Aniversário
+            </a>
+          </div>
+          <div class="image-wrapper">
+            <div class="image-offset-border"></div>
+            <img src="lemi_background_desktop.png" alt="Comemoração no Lemi">
+          </div>
         </div>
       </div>
     </section>
@@ -194,7 +561,25 @@
     </div>
   </footer>
 
+  <div id="dish-modal" class="modal">
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-carousel">
+        <div class="carousel-inner" id="modal-carousel-inner">
+          <!-- Images will be injected here -->
+        </div>
+        <button class="modal-nav modal-prev">&lsaquo;</button>
+        <button class="modal-nav modal-next">&rsaquo;</button>
+      </div>
+      <div class="modal-info">
+        <h2 id="modal-title">Nome do Prato</h2>
+        <p id="modal-desc">Descrição do prato...</p>
+      </div>
+    </div>
+  </div>
+
   <script src="main.js"></script>
 
 </body>
+
 </html>
