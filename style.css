@@ -240,7 +240,7 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--hero-overlay);
+  /* background: var(--hero-overlay); */
   z-index: -1;
   transition: background 0.4s ease;
 }
@@ -401,9 +401,14 @@ section:last-of-type {
   filter: grayscale(0%);
 }
 
-/* Ajuste específico para o "Sobre" que usa 6/5 */
-#sobre-carousel {
+/* Ajuste específico para as sessões de imagem dupla */
+#sobre-carousel,
+#aniversarios-carousel {
   aspect-ratio: 6/5;
+}
+
+#reservas-carousel {
+  aspect-ratio: 1/1;
 }
 
 /* --- MODAL --- */
@@ -591,22 +596,34 @@ section:last-of-type {
   font-family: 'Montserrat', sans-serif;
 }
 
+.new-tag {
+  background: #28a745;
+  /* Verde para destacar a novidade */
+  box-shadow: 0 2px 10px rgba(40, 167, 69, 0.4);
+}
+
 /* --- RESERVAS --- */
-.reservas-box {
-  background: var(--surface-color);
+.reservas-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.reservas-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   padding: 3rem;
   border: 1px solid var(--glass-border);
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  border-radius: 4px;
   box-shadow: var(--shadow-soft);
 }
 
 .reservas-list {
   list-style: none;
   text-align: left;
-  margin: 2rem auto;
-  display: inline-block;
+  margin: 2rem 0;
 }
 
 .reservas-list li {
@@ -721,7 +738,8 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .depoimentos-grid {
+  .depoimentos-grid,
+  .reservas-grid {
     grid-template-columns: 1fr;
   }
 
