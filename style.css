@@ -18,8 +18,6 @@
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
 
   /* Utilitários de Filtro */
-  --logo-filter: none;
-  /* Logo original no modo claro */
   --bg-filter: none;
   /* Background original no modo claro */
   --hero-overlay: rgba(255, 255, 255, 0.6);
@@ -43,8 +41,8 @@
   --glass-border: 1px solid rgba(255, 255, 255, 0.08);
   --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.3);
 
-  /* LOGO: Fica totalmente branca para contraste máximo */
-  --logo-filter: brightness(0) invert(1);
+  /* Distância do topo para logo */
+  --logo-bg-height: auto;
 
   /* BACKGROUND: O segredo da tonalidade escura */
   /* invert(1) deixa branco, brightness(0.2) escurece para cinza chumbo */
@@ -156,8 +154,12 @@ p {
 
 .logo-img {
   height: 45px;
-  filter: var(--logo-filter);
   transition: var(--transition);
+}
+
+[data-theme="dark"] .logo-img,
+[data-theme="dark"] .hero-main-logo {
+  content: url('logo_lemi_no_bg-cor-inversa.webp');
 }
 
 .nav-links {
@@ -275,7 +277,6 @@ p {
   height: auto;
   display: block;
   margin: 0 auto 2rem auto;
-  filter: var(--logo-filter);
   transition: var(--transition);
 }
 
