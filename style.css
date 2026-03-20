@@ -83,7 +83,7 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url('lemi_background_desktop.png');
+  background-image: url('lemi_background_desktop.webp');
   background-size: cover;
   background-position: center;
 
