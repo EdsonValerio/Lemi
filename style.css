@@ -157,10 +157,6 @@ p {
   transition: var(--transition);
 }
 
-[data-theme="dark"] .logo-img,
-[data-theme="dark"] .hero-main-logo {
-  content: url('logo_lemi_no_bg-cor-inversa.webp');
-}
 
 .nav-links {
   display: flex;
@@ -645,7 +641,103 @@ section:last-of-type {
   font-size: 1.5rem;
 }
 
-/* --- CARDS DE DEPOIMENTO --- */
+/* --- BLOCO ANIVERSÁRIO (dentro de reservas) --- */
+.aniversario-bloco {
+  margin-top: 2.5rem;
+  padding: 1.8rem 2rem;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--accent-color) 6%, transparent);
+}
+
+.aniversario-subtitulo {
+  font-size: 1.1rem;
+  color: var(--accent-color);
+  margin-bottom: 0.8rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.aniversario-bloco p {
+  margin-bottom: 1.2rem;
+  font-size: 0.95rem;
+}
+
+/* --- PROGRAMAÇÃO SEMANAL --- */
+.programacao-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.programacao-card {
+  background: var(--surface-color);
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+.programacao-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent-color);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.programacao-card--destaque {
+  border-color: var(--accent-color);
+  background: color-mix(in srgb, var(--accent-color) 5%, var(--surface-color));
+}
+
+.programacao-dia {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.programacao-foto-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.programacao-foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: grayscale(15%);
+}
+
+.programacao-card:hover .programacao-foto {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+.programacao-titulo {
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.programacao-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
 .depoimentos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -741,10 +833,9 @@ footer {
   font-size: 0.85rem;
 }
 
-/* Floating Mobile Icons */
-.floating-mobile-icons {
-  display: none;
-  /* Hidden by default, shown on mobile */
+/* Botões Flutuantes (WhatsApp, Instagram + Evento) - visíveis em todos os dispositivos */
+.floating-icons {
+  display: flex;
   position: fixed;
   bottom: 20px;
   right: 20px;
@@ -770,9 +861,16 @@ footer {
   height: 24px;
 }
 
+.floating-icon.evento {
+  background: var(--accent-color);
+  border: none;
+  cursor: pointer;
+}
+
 .floating-icon.insta {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
 }
+
 
 .floating-icon.whats {
   background: #25D366;
@@ -782,12 +880,114 @@ footer {
   transform: scale(0.9);
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .floating-mobile-icons {
-    display: flex;
-  }
+/* --- POPUP DE EVENTO (estilo Instagram) --- */
+.evento-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease;
+}
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.evento-card {
+  background: var(--surface-color);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.evento-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.evento-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: contain;
+  border: 2px solid var(--accent-color);
+  padding: 2px;
+  background: var(--bg-color);
+}
+
+.evento-username {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  flex: 1;
+  text-transform: lowercase;
+}
+
+.evento-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.evento-close:hover {
+  color: var(--text-primary);
+  background: var(--glass-border);
+}
+
+.evento-imagem-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #000;
+}
+
+.evento-imagem {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.evento-body {
+  padding: 14px 16px 18px;
+}
+
+.evento-descricao {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.evento-descricao strong {
+  color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
   .sobre-grid {
     grid-template-columns: 1fr;
   }

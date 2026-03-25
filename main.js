@@ -1,7 +1,26 @@
 /* main.js - Lógica Global */
+
+// =============================================================
+//  CONFIGURAÇÃO DE EVENTOS
+//  Mude para FALSE para desativar o popup e o botão flutuante
+// =============================================================
+const EVENTO_ATIVO = false;
+// =============================================================
+
 document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById('theme-btn');
     const htmlEl = document.documentElement;
+
+    const LOGO_LIGHT = 'logolemi.svg';
+    const LOGO_DARK = 'logoinversa.svg';
+
+    // Troca o src de todas as logos (.logo-img e .hero-main-logo)
+    const updateLogos = (theme) => {
+        const src = theme === 'dark' ? LOGO_DARK : LOGO_LIGHT;
+        document.querySelectorAll('.logo-img, .hero-main-logo').forEach(img => {
+            img.src = src;
+        });
+    };
 
     const savedTheme = localStorage.getItem('lemi-theme');
     const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -12,12 +31,51 @@ document.addEventListener('DOMContentLoaded', () => {
         htmlEl.setAttribute('data-theme', 'dark');
     }
 
+    // Aplica os logos corretos na carga inicial
+    updateLogos(htmlEl.getAttribute('data-theme'));
+
     if (themeBtn) {
         themeBtn.addEventListener('click', () => {
             const currentTheme = htmlEl.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             htmlEl.setAttribute('data-theme', newTheme);
             localStorage.setItem('lemi-theme', newTheme);
+            updateLogos(newTheme);
+        });
+    }
+
+    // --- LÓGICA DO POPUP DE EVENTO ---
+    // Para ativar/desativar: altere EVENTO_ATIVO no topo deste arquivo
+    const eventoPopup = document.getElementById('evento-popup');
+    const eventoClose = document.getElementById('evento-close');
+    const eventoBtnFlutuante = document.getElementById('evento-btn-flutuante');
+
+    if (EVENTO_ATIVO && eventoPopup) {
+        // Abre o popup automaticamente ao carregar
+        eventoPopup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+
+        // Botão X → fecha o popup e mostra botão flutuante
+        eventoClose.addEventListener('click', () => {
+            eventoPopup.style.display = 'none';
+            document.body.style.overflow = '';
+            eventoBtnFlutuante.style.display = 'flex';
+        });
+
+        // Fechar clicando fora do card
+        eventoPopup.addEventListener('click', (e) => {
+            if (e.target === eventoPopup) {
+                eventoPopup.style.display = 'none';
+                document.body.style.overflow = '';
+                eventoBtnFlutuante.style.display = 'flex';
+            }
+        });
+
+        // Botão flutuante → reabre o popup
+        eventoBtnFlutuante.addEventListener('click', () => {
+            eventoPopup.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            eventoBtnFlutuante.style.display = 'none';
         });
     }
 
